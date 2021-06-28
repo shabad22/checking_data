@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<br><br><br>
+    <h1>Checking Data</h1>
+    <br>
+    <form action="/home" method=post enctype=multipart/form-data>
+        <p>Master file: <input placeholder="Master file" type=file name=master_file> </p>
+        <p>Data file: <input type=file name=data_file> </p>
+        <br>
+        <input type=submit value=Upload>
+    </form>
+{% endblock content %}
