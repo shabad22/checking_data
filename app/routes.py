@@ -14,14 +14,14 @@ def home(): #route function
         master_data = pd.read_excel(master_file)
         data = pd.read_excel(data_file)
 
-        master_emails = master_data['Email']
+        master_rolls = master_data['University RollNo.']
         emails = data["email"]
         balance = master_data["Balance"]
 
         locs = []
         for i in range(len(emails)):
-            for j in range(len(master_emails)):
-                if emails[i] == master_emails[j]:
+            for j in range(len(master_rolls)):
+                if str(emails[i]).split("@")[0] == str(master_rolls[j]):
                     if balance[j] < 100:
                         locs.append(j)
         output = master_data.iloc[locs]
@@ -32,7 +32,8 @@ def home(): #route function
             print("delete")
         except:
             pass
-        output = output.to_excel("uploads/output.xlsx",index=0)  
+        output = output.to_excel("uploads/output.xlsx",index=0)
+        # return render_template("home.html")  
         return redirect("/download/output.xlsx")
     return render_template('home.html') 
 
