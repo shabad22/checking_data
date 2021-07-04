@@ -22,7 +22,7 @@ def home(): #route function
         for i in range(len(emails)):
             for j in range(len(master_rolls)):
                 if str(emails[i]).split("@")[0] == str(master_rolls[j]):
-                    if balance[j] < 100:
+                    if balance[j] < 50000:
                         locs.append(j)
         output = master_data.iloc[locs]
 
